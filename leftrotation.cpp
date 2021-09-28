@@ -38,7 +38,7 @@ int main(){
         cin>>no;
         a.push_back(no);
     }
-    
+    a.shrink_to_fit();
     leftrotate(a,n,d);
     return 0;
   }
