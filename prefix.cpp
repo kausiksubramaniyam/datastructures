@@ -7,7 +7,10 @@ public:
         auto iter=word[0].begin();
         auto it=word[0].end();
         for(i=0;i<strs.size();i++){
-            for(j=0;j<word[0].size();j++){
+         iter=word[0].begin();
+         it=word[0].end();
+         for(j=0;j<word[0].size();j++){
+           if(word[0].length()!=0){
             if(strs[i][j]==word[0][j])
             {
                 continue;
@@ -15,9 +18,9 @@ public:
             else{
                 word[0].erase(iter+j,it);
             }
+           }
         }
     }
-    cout<<word[0];
-    return 0;
+    return word[0];
     }
 };
