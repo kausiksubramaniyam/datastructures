@@ -1,10 +1,8 @@
-#include<iostream>
-#include<vector>
-#include<string.h>
-using namespace std;
-int main(){
-    string s={"dog cat cat cat"};
+class Solution {
+public:
+    bool wordPattern(string pattern, string s) {
     int i,j,n;
+    bool res;
     char val='a';
     vector<string> a;
     string word="";
@@ -19,14 +17,14 @@ int main(){
     }
     a.push_back(word);
     n=a.size();
-    int pat[n];
+    char pat[n];
     for(i=0;i<n;i++){
-        pat[i]=0;
+        pat[i]='0';
     }
     pat[0]=val;
     for(i=0;i<n;i++){
          for(j=i+1;j<n+1;j++){
-            if(pat[i]==0){
+            if(pat[i]=='0'){
                 pat[i]=val;
             }
             if(a[i]==a[j]){
@@ -36,9 +34,16 @@ int main(){
         }
         val=val+1;
     }
-    for(i=0;i<4;i++){
-        cout<<char(pat[i]);
+    word="";
+    for(i=0;i<n;i++){
+        word=word+pat[i];
     }
-    return 0;
-}
-
+    if(word==pattern){
+        res=true;
+    }
+    else{
+        res=false;
+    }
+    return res;
+    }
+};
